@@ -1,18 +1,22 @@
 $(function() {
 
-  // your code will go here
   $.ajax({
-    url: 'https://www.codeschool.com/users/2319950.json',
+    url: 'https://www.codeschool.com/users/sergiocruz.json',
     dataType: 'jsonp',
-    success: function(response) {
-      // handle response
-      var $badges = $('#badges');
+    success: function(data) {
+      populateWithCourses(data.courses.completed)
+    }
+  });
 
-      courses.forEach(function(response.courses.completed) {
-        $div = $('<div />', {
-          'class': 'course'
-        }).appendTo($badges)
-      })
+  function populateWithCourses(courses) {
+
+    var $badges = $('#badges');
+
+    courses.forEach(function(course) {
+
+      $div = $('<div />', {
+        'class': 'course'
+      }).appendTo($badges);
 
       $('<h3 />', {
         text: course.title
@@ -27,8 +31,10 @@ $(function() {
         target: '_blank',
         href: course.url,
         text: 'See Course'
-      }).appendTo($div)
-    }
-  });
+      }).appendTo($div);
+
+    });
+
+  }
 
 });
