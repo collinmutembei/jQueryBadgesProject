@@ -8,7 +8,7 @@ $(function() {
       // handle response
       var $badges = $('#badges');
 
-      courses.forEach(function(course) {
+      courses.forEach(function(response.courses.completed) {
         $div = $('<div />', {
           'class': 'course'
         }).appendTo($badges)
